@@ -1,0 +1,239 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  z-index: 100;
+  background-color: rgba(var(--color-neutral-rgb-9), 0.8);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+}
+
+/* 滚动时的效果 */
+.navbar.scrolled {
+  background-color: rgba(var(--color-neutral-rgb-9), 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(var(--color-neutral-rgb-1), 0.1);
+  box-shadow: 
+    0 4px 6px -1px rgba(var(--color-neutral-rgb-9), 0.1),
+    0 2px 4px -1px rgba(var(--color-neutral-rgb-9), 0.06);
+}
+
+.navbar-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Logo 滚动效果 */
+.navbar.scrolled .navbar-brand {
+  transform: scale(0.95);
+}
+
+.navbar-logo {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar.scrolled .navbar-logo {
+  transform: rotate(-2deg);
+}
+
+.company-name {
+  font-size: var(--font-size-base);    /* 16px */
+  line-height: var(--line-height-base); /* 24px */
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-1);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar.scrolled .company-name {
+  transform: translateX(-4px);
+  opacity: 0.9;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu-item {
+  font-size: var(--font-size-sm);      /* 14px */
+  line-height: var(--line-height-sm);   /* 22px */
+  font-weight: var(--font-weight-regular);
+  color: rgba(var(--color-neutral-rgb-1), 0.6);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  background-color: transparent;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.navbar-menu-item:hover {
+  color: var(--color-neutral-1);
+  background-color: transparent;
+}
+
+.navbar-menu-item.active {
+  color: var(--color-neutral-1);
+  font-weight: var(--font-weight-medium);
+  background-color: transparent;
+}
+
+/* 在文件末尾添加测试内容的样式 */
+.section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--color-neutral-8);
+}
+
+.section h1 {
+  font-size: 32px;
+  color: var(--color-neutral-1);
+  margin-bottom: 24px;
+}
+
+.section h2 {
+  font-size: 28px;
+  color: var(--color-neutral-1);
+  margin-bottom: 20px;
+}
+
+.section p {
+  font-size: 16px;
+  color: var(--color-neutral-2);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* 添加占位块以增加页面高度 */
+.placeholder {
+  height: 400px;
+  background: var(--color-neutral-8);
+  border-radius: 8px;
+  margin: 40px 0;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--color-neutral-1);
+    opacity: 0.5;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(var(--color-neutral-rgb-1), 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-out, height 0.4s ease-out;
+}
+
+.theme-toggle:hover::before {
+    width: 200%;
+    height: 200%;
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 图标切换动画 */
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+    position: absolute;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle .sun-icon {
+    transform: rotate(90deg) scale(0);
+    opacity: 0;
+}
+
+.theme-toggle .moon-icon {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+}
+
+/* 亮色模式时的图标动画 */
+.theme-light .theme-toggle .sun-icon {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+}
+
+.theme-light .theme-toggle .moon-icon {
+    transform: rotate(-90deg) scale(0);
+    opacity: 0;
+}
+
+/* 亮色模式时显示太阳图标，隐藏月亮图标 */
+.theme-light .theme-toggle .sun-icon {
+    display: block;
+}
+
+.theme-light .theme-toggle .moon-icon {
+    display: none;
+}
+
+/* 主题切换时的过渡效果 */
+.theme-light .navbar {
+    background-color: rgba(var(--color-neutral-rgb-9), 0.98);
+}
+
+.theme-light .navbar.scrolled {
+    background-color: rgba(var(--color-neutral-rgb-9), 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: rgba(var(--color-neutral-rgb-8), 0.15);
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+/* 默认显示月亮图标（暗色模式），隐藏太阳图标 */
+.theme-toggle .sun-icon {
+    display: none;
+}
+
+/* 亮色模式时显示太阳图标，隐藏月亮图标 */
+.theme-light .theme-toggle .sun-icon {
+    display: block;
+}
+
+.theme-light .theme-toggle .moon-icon {
+    display: none;
+} 

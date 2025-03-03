@@ -1,0 +1,774 @@
+.products {
+    min-height: 100vh;
+    padding: 40px 0;
+    background-color: var(--color-neutral-9);
+    position: relative;
+}
+
+.products-content {
+    text-align: left;
+}
+
+.products h2 {
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-2xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 20px;
+    /* 移除渐变效果，使用中性色 */
+    color: var(--color-neutral-1);
+}
+
+/* 亮色主题样式 */
+.theme-light .products {
+    background-color: var(--color-neutral-9);
+}
+
+.theme-light .products h2 {
+    color: var(--color-neutral-1);
+}
+
+/* 产品列表样式 */
+.product-list {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.product-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 12px;
+    background: rgba(var(--color-neutral-rgb-1), 0.02);
+    border: 1px solid rgba(var(--color-neutral-rgb-1), 0.1);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.product-item:hover {
+    background: rgba(var(--color-neutral-rgb-1), 0.03);
+    border-color: rgba(var(--color-neutral-rgb-1), 0.15);
+    transform: translateY(-2px);
+}
+
+/* 固定logo位置，与标题垂直居中对齐 */
+.product-logo {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    background-color: #A51CD4;
+    margin-bottom: 0;
+    margin-top: 16px; /* 增加顶部边距，使logo更往下移动 */
+    align-self: flex-start; /* 让logo固定在顶部 */
+    flex-shrink: 0; /* 防止logo被压缩 */
+}
+
+.product-logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 24px;
+}
+
+/* 调整产品信息区域，移除顶部内边距 */
+.product-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+    padding-top: 0; /* 移除顶部内边距 */
+}
+
+.product-info h3 {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-neutral-1);
+    margin-bottom: 4px;
+}
+
+.theme-light .product-info h3 {
+    color: var(--color-neutral-1);
+}
+
+.product-info p {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: rgba(var(--color-neutral-rgb-1), 0.8);
+    max-width: calc(100% - 160px);
+    margin-top: 4px;
+}
+
+.theme-light .product-info p {
+    color: rgba(var(--color-neutral-rgb-1), 0.8);
+}
+
+/* 降低按钮文字的层级，并加快可见性变化速度 */
+.product-info .try-button {
+    position: absolute;
+    right: 0;
+    top: 8px;
+    transform: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(var(--color-neutral-rgb-1), 0.1);
+    color: var(--color-neutral-1);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all 0.3s ease, visibility 0.05s linear; /* 加快可见性变化 */
+    text-decoration: none;
+    z-index: 1; /* 确保按钮层级低于弹窗 */
+}
+
+.theme-light .product-info .try-button {
+    background-color: rgba(var(--color-neutral-rgb-1), 0.1);
+    color: var(--color-neutral-1);
+    border: 1px solid rgba(var(--color-neutral-rgb-1), 0.2);
+}
+
+.theme-light .product-info .try-button:hover {
+    background-color: rgba(var(--color-neutral-rgb-1), 0.15);
+    border-color: rgba(var(--color-neutral-rgb-1), 0.3);
+}
+
+/* 提高弹窗层级并确保完全不透明 */
+.qr-tooltip {
+    position: absolute;
+    background-color: var(--color-neutral-9);
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 9999; /* 极高层级 */
+    width: 240px;
+    text-align: center; /* 确保内容居中 */
+}
+
+/* 移除向下弹出时的额外覆盖区域 */
+/* .qr-tooltip.tooltip-bottom::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: var(--color-neutral-9);
+    z-index: 9998;
+} */
+
+/* 确保弹窗内容也有高层级 */
+.qr-container {
+    position: relative;
+    z-index: 10000; /* 比弹窗本身更高 */
+    background-color: var(--color-neutral-9);
+    border-radius: 8px;
+    padding: 4px;
+    text-align: center;
+    width: 100%;
+}
+
+/* 默认向上弹出 */
+.qr-tooltip.tooltip-top {
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* 向下弹出 */
+.qr-tooltip.tooltip-bottom {
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* 三角形指示器 - 向上弹出时 */
+.qr-tooltip.tooltip-top::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--color-neutral-9);
+}
+
+/* 三角形指示器 - 向下弹出时 */
+.qr-tooltip.tooltip-bottom::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid var(--color-neutral-9);
+}
+
+/* 悬停效果 - 向上弹出 */
+.try-button:hover .qr-tooltip.tooltip-top {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-8px);
+}
+
+/* 悬停效果 - 向下弹出 */
+.try-button:hover .qr-tooltip.tooltip-bottom {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(8px);
+}
+
+/* 确保基本悬停效果也存在 */
+.try-button:hover .qr-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 确保弹窗内的文字居中 */
+.qr-container p {
+    color: var(--color-neutral-1);
+    font-size: var(--font-size-sm);
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    max-width: 100%; /* 覆盖可能继承的max-width */
+}
+
+/* 确保弹窗内的图片居中 */
+.qr-container img {
+    width: 200px;
+    height: 200px;
+    margin: 12px auto; /* 使用auto边距居中 */
+    border-radius: 8px;
+    display: block; /* 确保图片是块级元素 */
+}
+
+/* 修复亮色主题下的三角形颜色 */
+.theme-light .qr-tooltip.tooltip-top::after {
+    border-top-color: var(--color-neutral-9);
+}
+
+.theme-light .qr-tooltip.tooltip-bottom::after {
+    border-bottom-color: var(--color-neutral-9);
+}
+
+/* 亮色主题适配 */
+.theme-light .qr-tooltip {
+    background-color: var(--color-neutral-9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.theme-light .qr-container p {
+    color: var(--color-neutral-1);
+}
+
+/* 模态框样式 */
+.qr-modal {
+    display: none;  /* 确保默认不显示 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* 只有当同时有 active 和 fade-in 类时才显示 */
+.qr-modal.active {
+    display: flex;
+}
+
+.qr-modal.fade-in {
+    opacity: 1;
+}
+
+/* 当笨嘴神器的弹窗显示时立即隐藏全民AI按钮 */
+.product-item:first-child .try-button:hover ~ .product-item:nth-child(2) .try-button {
+    opacity: 0;
+    transition: opacity 0.05s linear; /* 加快隐藏速度 */
+}
+
+/* 产品详情展示方式 - 更清晰的层级关系 */
+.product-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    padding: 0 8px;
+    border-top: 1px solid transparent;
+}
+
+/* 当产品卡片悬停时展开详情 */
+.product-item:hover .product-details {
+    max-height: 300px; /* 增加高度以容纳更多内容 */
+    opacity: 1;
+    padding-top: 16px;
+    margin-top: 16px;
+    border-top: 1px solid rgba(var(--color-neutral-rgb-1), 0.1);
+}
+
+/* 但当按钮被悬停时，不显示产品详情 */
+.product-item .try-button:hover ~ .product-details {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    margin-top: 8px;
+    border-top-color: transparent;
+}
+
+/* 产品特性样式 - 更明显的模块标识 */
+.product-feature {
+    margin-bottom: 16px;
+    text-align: left;
+    position: relative;
+    padding-left: 16px; /* 为左侧指示符留出空间 */
+}
+
+/* 为不同的产品特性添加不同颜色的左侧指示条 */
+.product-feature::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 4px;
+    height: 16px;
+    background-color: var(--color-brand-1); /* 默认使用品牌色 */
+    border-radius: 2px;
+}
+
+/* 为巨鲸一眼清添加蓝色指示条，与标签颜色一致 */
+.product-feature:nth-child(2)::before {
+    background-color: #2E7CF6; /* 使用与标签相同的蓝色 */
+}
+
+/* 模块标题样式 */
+.product-feature h4 {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-neutral-1);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+/* 添加"轻松上手"标识 */
+.product-feature h4::after {
+    content: '轻松上手';
+    font-size: var(--font-size-xs);
+    line-height: 1;
+    font-weight: var(--font-weight-regular);
+    color: var(--color-brand-1);
+    background-color: rgba(var(--color-brand-rgb-1), 0.1);
+    padding: 4px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+}
+
+/* 为巨鲸一眼清添加"资金青睐排行榜"标签 - 调整字体大小 */
+.product-feature:nth-child(2) h4::after {
+    content: '资金青睐排行榜';
+    color: #2E7CF6; /* 保持蓝色 */
+    background-color: rgba(46, 124, 246, 0.1); /* 保持蓝色背景 */
+    font-size: var(--font-size-xs); /* 与其他标签保持一致的字体大小 */
+    padding: 4px 6px; /* 与其他标签保持一致的内边距 */
+    white-space: nowrap; /* 防止文字换行 */
+}
+
+/* 调整产品特性段落样式 - 增加与数字的距离 */
+.product-feature p {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: rgba(var(--color-neutral-rgb-1), 0.8);
+    text-align: left;
+    margin-bottom: 24px; /* 进一步增加与数字的距离 */
+}
+
+/* 策略容器样式 - 将数字和文字放在同一行 */
+.strategy-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+/* 突出显示数字 - 添加动画效果 */
+.highlight-number {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-brand-1);
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+/* 数字动画中的颜色变化 */
+.highlight-number.animating {
+    color: var(--color-brand-2);
+}
+
+/* 策略秘籍文字样式 - 内联显示 */
+.strategy-text {
+    font-size: var(--font-size-base);
+    color: rgba(var(--color-neutral-rgb-1), 0.8);
+    line-height: 1.2;
+    align-self: flex-end; /* 底部对齐 */
+    padding-bottom: 4px; /* 微调底部对齐 */
+}
+
+/* 产品特性之间的分隔 */
+.product-feature + .product-feature {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px dashed rgba(var(--color-neutral-rgb-1), 0.1);
+}
+
+/* 产品特性行 - 水平排列并垂直居中对齐 */
+.product-features-row {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    align-items: center; /* 垂直居中对齐 */
+}
+
+/* 确保两个产品特性标题完全一致的垂直对齐 */
+.product-features-row .product-feature {
+    flex: 1;
+    margin-bottom: 0;
+    min-width: 0; /* 允许flex项目收缩 */
+    display: flex; /* 使内部元素也可以灵活布局 */
+    flex-direction: column; /* 保持垂直排列 */
+    justify-content: flex-start; /* 从顶部开始对齐 */
+    height: 100%; /* 确保高度一致 */
+}
+
+/* 确保标题完全一致的样式和对齐 */
+.product-features-row .product-feature h4 {
+    margin-top: 0; /* 移除顶部边距 */
+    margin-bottom: 16px; /* 增加与下方内容的间距 */
+    height: 32px; /* 固定高度 */
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中 */
+}
+
+/* 确保标签一致对齐 */
+.product-features-row .product-feature h4::after {
+    align-self: center; /* 确保标签垂直居中 */
+}
+
+/* 确保两个产品特性的内容区域也一致对齐 */
+.product-features-row .product-feature p {
+    margin-bottom: 16px; /* 统一下边距 */
+}
+
+/* 移除产品特性之间的分隔线并调整对齐 */
+.product-features-row .product-feature + .product-feature {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    border-left: 1px dashed rgba(var(--color-neutral-rgb-1), 0.1);
+    padding-left: 24px; /* 左侧内边距 */
+    align-self: stretch; /* 拉伸以填充容器高度 */
+}
+
+/* 为产品特性行中的巨鲸一眼清添加蓝色指示条 */
+.product-features-row .product-feature:nth-child(2)::before {
+    background-color: #2E7CF6; /* 使用与标签相同的蓝色 */
+}
+
+/* 确保行中的巨鲸一眼清标签也使用相同样式 */
+.product-features-row .product-feature:nth-child(2) h4::after {
+    content: '资金青睐排行榜';
+    font-size: var(--font-size-xs); /* 与其他标签保持一致的字体大小 */
+    padding: 4px 6px; /* 与其他标签保持一致的内边距 */
+    white-space: nowrap; /* 防止文字换行 */
+}
+
+/* 百分比数字样式 */
+.highlight-number.percentage::after {
+    content: '%';
+}
+
+/* 百分比数字颜色 - 根据正负值变化，正值使用与30+相同的品牌色 */
+.highlight-number.percentage.negative {
+    color: #00C853; /* 绿色，表示下跌 */
+}
+
+.highlight-number.percentage.positive {
+    color: var(--color-brand-1); /* 使用与30+相同的品牌色 */
+}
+
+/* 百分比数字动画中的颜色变化 */
+.highlight-number.percentage.animating.positive {
+    color: var(--color-brand-2); /* 动画中使用与30+动画相同的颜色 */
+}
+
+/* 移除巨鲸一眼清的策略文字特殊样式，使其与机会大师保持一致 */
+.product-feature:nth-child(2) .strategy-text {
+    color: rgba(var(--color-neutral-rgb-1), 0.8); /* 使用与"策略秘籍直接用"相同的颜色 */
+}
+
+/* 确保所有策略文字样式一致 */
+.strategy-text {
+    font-size: var(--font-size-base);
+    color: rgba(var(--color-neutral-rgb-1), 0.8);
+    line-height: 1.2;
+    align-self: flex-end; /* 底部对齐 */
+    padding-bottom: 4px; /* 微调底部对齐 */
+}
+
+/* 第二行产品特性样式 */
+.product-features-row.second-row {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px dashed rgba(var(--color-neutral-rgb-1), 0.1);
+}
+
+/* 为宏观一眼清添加特殊标签 */
+.second-row .product-feature h4::after {
+    content: '全局视角';
+    color: #FF9800; /* 橙色 */
+    background-color: rgba(255, 152, 0, 0.1); /* 橙色背景 */
+}
+
+/* 为宏观一眼清添加橙色指示条 */
+.second-row .product-feature::before {
+    background-color: #FF9800; /* 橙色 */
+}
+
+/* 为笨嘴Chat添加特殊标签 - 确保字体大小一致 */
+.second-row .product-feature:nth-child(2) h4::after {
+    content: 'AI驱动';
+    color: #9C27B0; /* 紫色 */
+    background-color: rgba(156, 39, 176, 0.1); /* 紫色背景 */
+    font-size: var(--font-size-xs); /* 与其他标签保持一致的字体大小 */
+    padding: 4px 6px; /* 与其他标签保持一致的内边距 */
+}
+
+/* 为笨嘴Chat添加紫色指示条 */
+.second-row .product-feature:nth-child(2)::before {
+    background-color: #9C27B0; /* 紫色 */
+}
+
+/* 确保第二行的分隔线样式与第一行一致 */
+.second-row .product-feature + .product-feature {
+    border-left: 1px dashed rgba(var(--color-neutral-rgb-1), 0.1);
+    padding-left: 24px;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+/* 当产品卡片悬停时展开详情 - 增加高度以容纳更多内容 */
+.product-item:hover .product-details {
+    max-height: 400px; /* 增加高度以容纳更多行 */
+}
+
+/* 全民AI聚合效果样式 */
+.ai-convergence {
+    position: relative;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ai-convergence-container {
+    position: relative;
+    height: 220px;
+    width: 100%;
+}
+
+/* 中心AI图标 */
+.ai-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.ai-center img {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    margin-bottom: 8px;
+    box-shadow: 0 0 20px rgba(var(--color-brand-rgb-2), 0.5);
+    animation: pulse 2s infinite;
+}
+
+.ai-center span {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-neutral-1);
+}
+
+/* 场景标签 */
+.ai-scenario-tags {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.ai-tag {
+    position: absolute;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: var(--font-size-sm);
+    color: var(--color-neutral-1);
+    background-color: rgba(var(--color-neutral-rgb-1), 0.1);
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* 调整各个标签的初始位置，使其更加错开 */
+.ai-tag.work { top: 5%; left: 8%; background-color: rgba(233, 30, 99, 0.1); color: #E91E63; }
+.ai-tag.study { top: 10%; right: 8%; background-color: rgba(33, 150, 243, 0.1); color: #2196F3; }
+.ai-tag.life { bottom: 20%; left: 20%; background-color: rgba(76, 175, 80, 0.1); color: #4CAF50; } /* 日程安排位置调整 */
+.ai-tag.creative { bottom: 25%; right: 20%; background-color: rgba(255, 152, 0, 0.1); color: #FF9800; } /* 营养健康位置调整 */
+.ai-tag.research { top: 30%; left: 2%; background-color: rgba(156, 39, 176, 0.1); color: #9C27B0; }
+.ai-tag.coding { bottom: 60%; right: 2%; background-color: rgba(0, 188, 212, 0.1); color: #00BCD4; }
+.ai-tag.parenting { top: 45%; left: 3%; background-color: rgba(156, 39, 176, 0.1); color: #9C27B0; } /* 调整哄娃神器位置 */
+.ai-tag.fitness { top: 45%; right: 3%; background-color: rgba(255, 87, 34, 0.1); color: #FF5722; } /* 调整1v1私教位置 */
+
+/* 悬停时标签动画 */
+.product-item:hover .ai-tag {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* 进一步调整日程安排和营养健康的聚拢位置 */
+.product-item:hover .ai-tag.life { animation: moveToCenter 1.7s 0.3s forwards; --to-center-offset-x: 10px; --to-center-offset-y: 20px; } /* 日程安排往右上移动 */
+.product-item:hover .ai-tag.creative { animation: moveToCenter 1.4s 0.4s forwards; --to-center-offset-x: -10px; --to-center-offset-y: 35px; } /* 营养健康往左下移动 */
+
+/* 当鼠标离开时恢复原位 */
+.product-item .ai-tag {
+    transition: transform 0.8s ease, opacity 0.5s ease;
+}
+
+/* 确保鼠标离开时标签平滑回到原位 */
+.product-item:not(:hover) .ai-tag {
+    transform: translate(0, 0) scale(0.8);
+    opacity: 0;
+}
+
+/* 调整连接线样式，使其更接近背景颜色且更细 */
+.connection-line {
+    opacity: 0;
+    stroke-width: 1.5; /* 更细的线条 */
+    stroke-dasharray: 4, 3; /* 调整虚线样式 */
+    stroke-dashoffset: 100;
+    transition: opacity 0.5s ease;
+    filter: none;
+    stroke: rgba(var(--color-neutral-rgb-1), 0.3) !important; /* 降低不透明度，更接近背景色 */
+}
+
+/* 移除箭头效果 */
+.ai-connections svg {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* 恢复为隐藏溢出内容 */
+}
+
+/* 使用中性色 */
+.connection-line {
+    stroke: rgba(var(--color-neutral-rgb-1), 0.5) !important; /* 使用中性色 */
+}
+
+/* 修改渐变颜色，使所有线条都使用蓝色 */
+#grad-work stop, 
+#grad-study stop, 
+#grad-life stop, 
+#grad-creative stop, 
+#grad-research stop, 
+#grad-coding stop {
+    stop-color: #2196F3 !important; /* 统一使用蓝色 */
+}
+
+/* 悬停时显示连接线 */
+.product-item:hover .connection-line {
+    opacity: 0.7; /* 降低不透明度，使线条不那么突出 */
+    animation: dashOffset 2.5s linear infinite; /* 放慢动画速度 */
+}
+
+/* 虚线动画 - 反向流动，从标签流向中心 */
+@keyframes dashOffset {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -24; } /* 负值使虚线向中心流动 */
+}
+
+/* 描述文字 */
+.ai-description {
+    text-align: center !important;
+    max-width: 100% !important;
+    margin-top: 20px !important;
+    font-size: var(--font-size-base) !important;
+    color: rgba(var(--color-neutral-rgb-1), 0.8) !important;
+}
+
+/* 动画关键帧 */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(var(--color-brand-rgb-2), 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(var(--color-brand-rgb-2), 0); }
+    100% { box-shadow: 0 0 0 0 rgba(var(--color-brand-rgb-2), 0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 修改新增标签样式，保持与现有标签一致 */
+.ai-tag.parenting { 
+    top: 40%; 
+    left: 5%; 
+    background-color: rgba(156, 39, 176, 0.1); /* 半透明背景 */
+    color: #9C27B0; /* 紫色文字 */
+}
+
+.ai-tag.fitness { 
+    top: 40%; 
+    right: 5%; 
+    background-color: rgba(255, 87, 34, 0.1); /* 半透明背景 */
+    color: #FF5722; /* 橙红色文字 */
+}
+
+/* 为新增标签添加动画效果 */
+.product-item:hover .ai-tag.parenting { animation: moveToCenter 1.5s 0.7s forwards; }
+.product-item:hover .ai-tag.fitness { animation: moveToCenter 1.3s 0.8s forwards; }
+
+/* 添加回丢失的动画关键帧定义 */
+@keyframes moveToCenter {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(calc(var(--to-center-x)), calc(var(--to-center-y))) scale(0.95); }
+}
+
+/* 恢复所有标签的动画设置，并调整日程安排和营养健康的位置 */
+.product-item:hover .ai-tag.work { animation: moveToCenter 1.5s 0.1s forwards; --to-center-offset-x: 35px; --to-center-offset-y: -45px; }
+.product-item:hover .ai-tag.study { animation: moveToCenter 1.3s 0.2s forwards; --to-center-offset-x: -80px; --to-center-offset-y: -30px; }
+.product-item:hover .ai-tag.life { animation: moveToCenter 1.7s 0.3s forwards; --to-center-offset-x: 10px; --to-center-offset-y: 20px; } /* 日程安排往右上移动 */
+.product-item:hover .ai-tag.creative { animation: moveToCenter 1.4s 0.4s forwards; --to-center-offset-x: -10px; --to-center-offset-y: 35px; } /* 营养健康往左下移动 */
+.product-item:hover .ai-tag.research { animation: moveToCenter 1.6s 0.5s forwards; --to-center-offset-x: -50px; --to-center-offset-y: -30px; }
+.product-item:hover .ai-tag.coding { animation: moveToCenter 1.5s 0.6s forwards; --to-center-offset-x: 20px; --to-center-offset-y: 50px; }
+.product-item:hover .ai-tag.parenting { animation: moveToCenter 1.5s 0.7s forwards; --to-center-offset-x: -55px; --to-center-offset-y: 10px; }
+.product-item:hover .ai-tag.fitness { animation: moveToCenter 1.3s 0.8s forwards; --to-center-offset-x: 80px; --to-center-offset-y: -30px; } 

@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="styles/tokens/colors.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components/navbar.css">
+    <link rel="stylesheet" href="styles/components/hero.css">
+    <link rel="stylesheet" href="styles/components/products.css">
+    <link rel="stylesheet" href="styles/tokens/typography.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <div class="navbar-brand">
+                <img src="./images/logo.svg" alt="公司logo" width="48" height="48">
+                <span class="company-name">成都数有引力科技有限公司</span>
+            </div>
+            <div class="navbar-right">
+                <ul class="navbar-menu">
+                    <li><a href="#hero" class="navbar-menu-item active">首页</a></li>
+                    <li><a href="#products" class="navbar-menu-item">产品中心</a></li>
+                    <li><a href="/about" class="navbar-menu-item">关于我们</a></li>
+                    <li><a href="/join" class="navbar-menu-item">加入我们</a></li>
+                </ul>
+                <button class="theme-toggle" aria-label="切换主题模式">
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3C10.8 4.2 10.1 5.8 10.1 7.5C10.1 11.1 13 14 16.6 14C18.3 14 19.9 13.3 21.1 12.1C21.1 17 17.2 21 12.3 21C7.3 21 3.4 17.1 3.4 12.1C3.4 7.2 7.3 3.3 12.3 3.3C12.2 3.3 12.1 3.3 12 3.3V3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3V4M12 20V21M21 12H20M4 12H3M18.4 18.4L17.7 17.7M6.3 6.3L5.6 5.6M18.4 5.6L17.7 6.3M6.3 17.7L5.6 18.4M16 12C16 14.2 14.2 16 12 16C9.8 16 8 14.2 8 12C8 9.8 9.8 8 12 8C14.2 8 16 9.8 16 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <script>
+      const navbar = document.querySelector('.navbar');
+      let lastScrollTop = 0;
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // 当滚动超过导航栏高度时添加阴影效果
+            if (currentScrollTop > 0) {
+              navbar.classList.add('scrolled');
+            } else {
+              navbar.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = currentScrollTop;
+            ticking = false;
+          });
+          
+          ticking = true;
+        }
+      });
+    </script>
+
+    <main class="main">
+        <section id="hero" class="hero">
+            <div id="particles-bg" class="particles-container"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>数字科技 引领未来</h1>
+                    <p>AI驱动 用科技的力量 创造无限可能</p>
+                </div>
+                <a href="#products" class="scroll-down-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5L12 19M12 19L18 13M12 19L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <section id="products" class="products">
+            <div class="container">
+                <div class="products-content">
+                    <h2>产品中心。</h2>
+                    <div class="product-list">
+                        <div class="product-item">
+                            <div class="product-logo">
+                                <img src="./images/logo-BZSQ-r.png" alt="笨嘴神器" width="48" height="48">
+                            </div>
+                            <div class="product-info">
+                                <h3>笨嘴神器</h3>
+                                <p>跨时代的 融合人工智能(AI)的股票基金分析利器</p>
+                                <button class="try-button">
+                                    扫码体验
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <div class="qr-tooltip">
+                                        <div class="qr-container">
+                                            <p>打开微信扫一扫</p>
+                                            <img src="./images/erweima-BZSQ.png" alt="笨嘴神器小程序码" width="200" height="200">
+                                        </div>
+                                    </div>
+                                </button>
+                                
+                                <!-- 修改产品详情布局，将两个模块排成一行 -->
+                                <div class="product-details">
+                                    <div class="product-features-row">
+                                        <div class="product-feature">
+                                            <h4>机会大师</h4>
+                                            <p>板块+策略秘籍+自选 一键交火 轻松选出中意股</p>
+                                            <div class="strategy-container">
+                                                <span class="highlight-number" data-target="30">0</span>
+                                                <span class="strategy-text">策略秘籍直接用</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="product-feature">
+                                            <h4>巨鲸一眼清</h4>
+                                            <p>海外资金 短时间大规模加/减仓板块 排行榜</p>
+                                            <div class="strategy-container">
+                                                <span class="highlight-number percentage" data-start="-10" data-target="10">-10</span>
+                                                <span class="strategy-text">资金加速流入</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 第二行：宏观一眼清 -->
+                                    <div class="product-features-row second-row">
+                                        <div class="product-feature">
+                                            <h4>宏观一眼清</h4>
+                                            <p>宏观看的懂 行业选的准</p>
+                                        </div>
+                                        
+                                        <div class="product-feature">
+                                            <h4>笨嘴Chat</h4>
+                                            <p>AI助你投资 更多惊喜 打开笨嘴神器等你体验</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-item">
+                            <div class="product-logo">
+                                <img src="./images/logo-QMAI-r.png" alt="全民AI" width="48" height="48">
+                            </div>
+                            <div class="product-info">
+                                <h3>全民AI</h3>
+                                <p>智能随心 智造我的AI</p>
+                                <a href="https://ai.shuyouyinli.cn" target="_blank" class="try-button">
+                                    立即体验
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                
+                                <!-- 添加悬停时显示的产品详情 -->
+                                <div class="product-details ai-convergence">
+                                    <!-- AI聚合效果容器 -->
+                                    <div class="ai-convergence-container">
+                                        <!-- 各种场景标签 -->
+                                        <div class="ai-scenario-tags">
+                                            <span class="ai-tag work">办公助手</span>
+                                            <span class="ai-tag study">学习导师</span>
+                                            <span class="ai-tag life">日程安排</span>
+                                            <span class="ai-tag creative">营养健康</span>
+                                            <span class="ai-tag research">理财投资顾问</span>
+                                            <span class="ai-tag coding">热点播报</span>
+                                            <!-- 新增左侧标签 -->
+                                            <span class="ai-tag parenting">哄娃神器</span>
+                                            <!-- 新增右侧标签 -->
+                                            <span class="ai-tag fitness">1v1私教</span>
+                                        </div>
+                                        
+                                        <!-- 中心AI图标 -->
+                                        <div class="ai-center">
+                                            <img src="./images/logo-QMAI-r.png" alt="全民AI" width="64" height="64">
+                                            <span>全民AI</span>
+                                        </div>
+                                        
+                                        <!-- 修改连接线部分，为每个标签创建专属连线 -->
+                                        <div class="ai-connections">
+                                            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                                <defs>
+                                                    <!-- 使用中性色渐变 -->
+                                                    <linearGradient id="neutral-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                        <stop offset="0%" stop-color="rgba(var(--color-neutral-rgb-1), 0.6)" stop-opacity="0.6"/>
+                                                        <stop offset="100%" stop-color="rgba(var(--color-neutral-rgb-1), 0.3)" stop-opacity="0.3"/>
+                                                    </linearGradient>
+                                                </defs>
+                                                
+                                                <!-- 使用中性色渐变，移除箭头标记 -->
+                                                <line class="connection-line work-line" x1="0" y1="0" x2="50%" y2="50%" 
+                                                      stroke="rgba(var(--color-neutral-rgb-1), 0.5)" stroke-width="2" stroke-dasharray="6,3"/>
+                                                <line class="connection-line study-line" x1="0" y1="0" x2="50%" y2="50%" 
+                                                      stroke="rgba(var(--color-neutral-rgb-1), 0.5)" stroke-width="2" stroke-dasharray="6,3"/>
+                                                <line class="connection-line life-line" x1="0" y1="0" x2="50%" y2="50%" 
+                                                      stroke="rgba(var(--color-neutral-rgb-1), 0.5)" stroke-width="2" stroke-dasharray="6,3"/>
+                                                <line class="connection-line creative-line" x1="0" y1="0" x2="50%" y2="50%" 
+                                                      stroke="rgba(var(--color-neutral-rgb-1), 0.5)" stroke-width="2" stroke-dasharray="6,3"/>
+                                                <line class="connection-line research-line" x1="0" y1="0" x2="50%" y2="50%" 
+                                                      stroke="rgba(var(--color-neutral-rgb-1), 0.5)" stroke-width="2" stroke-dasharray="6,3"/>
+                                                <line class="connection-line coding-line" x1="0" y1="0" x2="50%" y2="50%" 
+                                                      stroke="rgba(var(--color-neutral-rgb-1), 0.5)" stroke-width="2" stroke-dasharray="6,3"/>
+                                                
+                                                <!-- 新增的两条线 -->
+                                                <line class="connection-line parenting-line" x1="0" y1="0" x2="50%" y2="50%" 
+                                                      stroke="rgba(var(--color-neutral-rgb-1), 0.5)" stroke-width="2" stroke-dasharray="6,3"/>
+                                                <line class="connection-line fitness-line" x1="0" y1="0" x2="50%" y2="50%" 
+                                                      stroke="rgba(var(--color-neutral-rgb-1), 0.5)" stroke-width="2" stroke-dasharray="6,3"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 简短说明 -->
+                                    <p class="ai-description">全民AI，让智能融入生活、学习、工作的每个角落</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="./js/particles-init.js"></script>
+
+    <script>
+        // 主题切换功能
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        
+        // 检查本地存储中的主题设置
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            // 切换主题类
+            body.classList.toggle('theme-light');
+            
+            // 保存主题设置到本地存储
+            const currentTheme = body.classList.contains('theme-light') ? 'theme-light' : '';
+            localStorage.setItem('theme', currentTheme);
+        });
+    </script>
+
+    <script>
+        // 获取所有导航项和对应的部分
+        const sections = document.querySelectorAll('section[id]');
+        const navItems = document.querySelectorAll('.navbar-menu-item');
+
+        // 平滑滚动到锚点，而不是默认的跳转
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                // 只处理内部链接
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if(targetElement) {
+                        // 使用平滑滚动
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // 减去导航栏高度
+                            behavior: 'smooth'
+                        });
+                        
+                        // 更新URL但不触发默认滚动
+                        history.pushState(null, null, `#${targetId}`);
+                        
+                        // 更新激活状态
+                        navItems.forEach(nav => nav.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // 监听滚动事件，但使用节流函数减少触发频率
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if(scrollTimeout) {
+                window.cancelAnimationFrame(scrollTimeout);
+            }
+            
+            scrollTimeout = window.requestAnimationFrame(() => {
+                const scrollY = window.pageYOffset;
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    // 调整判断条件
+                    if (scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                // 更新导航栏激活状态，但不触发滚动
+                navItems.forEach(item => {
+                    const href = item.getAttribute('href').substring(1);
+                    if (href === current) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        }, { passive: true });
+    </script>
+
+    <script>
+        // 智能调整二维码弹窗位置
+        function updateTooltipPositions() {
+            const tryButtons = document.querySelectorAll('.try-button');
+            
+            tryButtons.forEach(button => {
+                const tooltip = button.querySelector('.qr-tooltip');
+                if (!tooltip) return;
+                
+                // 移除可能已有的方向类
+                tooltip.classList.remove('tooltip-top', 'tooltip-bottom');
+                
+                // 获取按钮位置
+                const buttonRect = button.getBoundingClientRect();
+                const buttonTop = buttonRect.top;
+                const viewportHeight = window.innerHeight;
+                
+                // 如果按钮在视口上半部分，弹窗向下；否则向上
+                if (buttonTop < viewportHeight / 2) {
+                    tooltip.classList.add('tooltip-bottom');
+                } else {
+                    tooltip.classList.add('tooltip-top');
+                }
+                
+                // 调试信息
+                console.log('按钮位置:', buttonTop, '视口高度:', viewportHeight, '方向:', buttonTop < viewportHeight / 2 ? '下' : '上');
+            });
+        }
+        
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', updateTooltipPositions);
+        
+        // 窗口大小改变时更新
+        window.addEventListener('resize', updateTooltipPositions);
+        
+        // 页面滚动时更新
+        let tooltipScrollTimeout;
+        window.addEventListener('scroll', function() {
+            if (tooltipScrollTimeout) {
+                window.cancelAnimationFrame(tooltipScrollTimeout);
+            }
+            
+            tooltipScrollTimeout = window.requestAnimationFrame(updateTooltipPositions);
+        }, { passive: true });
+    </script>
+
+    <script>
+        // 处理弹窗显示时隐藏其他按钮文字
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取笨嘴神器的扫码体验按钮和全民AI的立即体验按钮
+            const productItems = document.querySelectorAll('.product-item');
+            let scanCodeButton, experienceButton;
+            
+            // 找到两个按钮
+            productItems.forEach(item => {
+                const title = item.querySelector('h3');
+                if (title) {
+                    if (title.textContent.includes('笨嘴神器')) {
+                        scanCodeButton = item.querySelector('.try-button');
+                    } else if (title.textContent.includes('全民AI')) {
+                        experienceButton = item.querySelector('.try-button');
+                    }
+                }
+            });
+            
+            if (scanCodeButton && experienceButton) {
+                // 当鼠标悬停在扫码体验按钮上时
+                scanCodeButton.addEventListener('mouseenter', function() {
+                    const tooltip = this.querySelector('.qr-tooltip');
+                    if (tooltip && tooltip.classList.contains('tooltip-bottom')) {
+                        // 如果弹窗从下方弹出，完全隐藏立即体验按钮
+                        experienceButton.style.visibility = 'hidden';
+                    }
+                });
+                
+                // 当鼠标离开扫码体验按钮时
+                scanCodeButton.addEventListener('mouseleave', function() {
+                    // 恢复立即体验按钮的可见性
+                    experienceButton.style.visibility = 'visible';
+                });
+            }
+        });
+    </script>
+
+    <script>
+        // 数字滚动动画 - 每次悬停都触发
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有需要动画的数字元素
+            const numberElements = document.querySelectorAll('.highlight-number[data-target]');
+            
+            // 为每个产品项添加交互
+            const productItems = document.querySelectorAll('.product-item');
+            productItems.forEach(item => {
+                // 记录鼠标是否在产品卡片上
+                let isHovering = false;
+                
+                // 鼠标进入时触发动画
+                item.addEventListener('mouseenter', function() {
+                    isHovering = true;
+                    // 找到该产品项内的数字元素
+                    const numbers = this.querySelectorAll('.highlight-number[data-target]');
+                    numbers.forEach(element => {
+                        // 重置数字为0，以便每次都能触发动画
+                        element.textContent = '0';
+                        animateNumber(element);
+                    });
+                });
+                
+                // 鼠标离开时重置状态
+                item.addEventListener('mouseleave', function() {
+                    isHovering = false;
+                    // 找到该产品项内的数字元素
+                    const numbers = this.querySelectorAll('.highlight-number[data-target]');
+                    numbers.forEach(element => {
+                        // 清除可能存在的动画计时器
+                        if (element.animationTimer) {
+                            clearInterval(element.animationTimer);
+                            element.animationTimer = null;
+                        }
+                        // 移除动画类
+                        element.classList.remove('animating');
+                    });
+                });
+            });
+            
+            // 数字动画函数
+            function animateNumber(element) {
+                // 获取目标数值
+                const target = parseInt(element.getAttribute('data-target'));
+                // 获取起始数值（如果有）
+                const start = element.hasAttribute('data-start') ? 
+                              parseInt(element.getAttribute('data-start')) : 0;
+                // 当前数值
+                let current = parseInt(element.textContent) || start;
+                
+                // 清除可能存在的旧动画计时器
+                if (element.animationTimer) {
+                    clearInterval(element.animationTimer);
+                }
+                
+                // 添加动画中的类
+                element.classList.add('animating');
+                
+                // 计算增量和动画持续时间
+                const totalChange = Math.abs(target - start);
+                const increment = Math.ceil(totalChange / 20) * (target > start ? 1 : -1); // 分20步完成，考虑方向
+                const duration = 1000; // 1秒完成
+                const stepTime = duration / (totalChange / Math.abs(increment));
+                
+                // 重置为起始值
+                element.textContent = start;
+                current = start;
+                
+                // 设置初始颜色类
+                if (element.classList.contains('percentage')) {
+                    updatePercentageColor(element, current);
+                }
+                
+                // 执行动画
+                element.animationTimer = setInterval(() => {
+                    current += increment;
+                    // 检查是否达到或超过目标值
+                    if ((increment > 0 && current >= target) || 
+                        (increment < 0 && current <= target)) {
+                        current = target;
+                        clearInterval(element.animationTimer);
+                        element.animationTimer = null;
+                        // 移除动画中的类
+                        setTimeout(() => {
+                            element.classList.remove('animating');
+                        }, 300);
+                    }
+                    
+                    // 更新显示，根据元素类型添加不同的后缀
+                    if (element.classList.contains('percentage')) {
+                        element.textContent = current;
+                        updatePercentageColor(element, current);
+                    } else {
+                        element.textContent = current + '+';
+                    }
+                }, stepTime);
+            }
+
+            // 根据百分比值更新颜色
+            function updatePercentageColor(element, value) {
+                // 移除现有的颜色类
+                element.classList.remove('negative', 'positive');
+                
+                // 根据值添加相应的颜色类
+                if (value < 0) {
+                    element.classList.add('negative');
+                } else if (value > 0) {
+                    element.classList.add('positive');
+                }
+                // 值为0时不添加特殊颜色类
+            }
+        });
+    </script>
+
+    <script>
+        // 修复生活管理标签线条对齐问题
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化标签和线条
+            function setupTagsAndLines() {
+                const container = document.querySelector('.ai-convergence-container');
+                if (!container) return;
+                
+                // 获取中心AI图标的位置
+                const aiCenter = document.querySelector('.ai-center');
+                if (!aiCenter) return;
+                
+                const aiCenterImg = aiCenter.querySelector('img');
+                if (!aiCenterImg) return;
+                
+                const containerRect = container.getBoundingClientRect();
+                const centerImgRect = aiCenterImg.getBoundingClientRect();
+                
+                // 计算AI中心图标圆心相对于容器的位置
+                const aiCenterX = centerImgRect.left - containerRect.left + centerImgRect.width/2;
+                const aiCenterY = centerImgRect.top - containerRect.top + centerImgRect.height/2 + 5;
+                
+                // 标签和线条的映射关系
+                const tagLineMap = {
+                    'work': '.work-line',
+                    'study': '.study-line',
+                    'life': '.life-line',
+                    'creative': '.creative-line',
+                    'research': '.research-line',
+                    'coding': '.coding-line',
+                    'parenting': '.parenting-line', // 新增标签
+                    'fitness': '.fitness-line' // 新增标签
+                };
+                
+                // 获取所有标签
+                const tags = document.querySelectorAll('.ai-tag');
+                
+                // 设置标签的初始位置和对应的线条
+                tags.forEach(tag => {
+                    const rect = tag.getBoundingClientRect();
+                    // 确保线条起点精确对齐标签中心
+                    const tagX = rect.left - containerRect.left + rect.width/2;
+                    const tagY = rect.top - containerRect.top + rect.height/2;
+                    
+                    // 存储标签的初始位置
+                    tag.dataset.initialX = tagX;
+                    tag.dataset.initialY = tagY;
+                    
+                    // 计算从标签到中心的向量，添加偏移量避免堆叠
+                    const offsetX = parseFloat(getComputedStyle(tag).getPropertyValue('--to-center-offset-x') || '0');
+                    const offsetY = parseFloat(getComputedStyle(tag).getPropertyValue('--to-center-offset-y') || '0');
+
+                    const toX = (aiCenterX - tagX) * 0.5 + offsetX;
+                    const toY = (aiCenterY - tagY) * 0.5 + offsetY;
+                    
+                    // 设置CSS变量，用于moveToCenter动画
+                    tag.style.setProperty('--to-center-x', `${toX}px`);
+                    tag.style.setProperty('--to-center-y', `${toY}px`);
+                    
+                    // 找到对应的线条
+                    for (const className in tagLineMap) {
+                        if (tag.classList.contains(className)) {
+                            const line = container.querySelector(tagLineMap[className]);
+                            if (line) {
+                                // 设置线条的初始位置，确保精确对齐
+                                line.setAttribute('x1', tagX);
+                                line.setAttribute('y1', tagY);
+                                line.setAttribute('x2', aiCenterX);
+                                line.setAttribute('y2', aiCenterY);
+                                
+                                // 将线条与标签关联
+                                tag.dataset.line = tagLineMap[className].substring(1);
+                                line.dataset.tag = className;
+                            }
+                            break;
+                        }
+                    }
+                });
+                
+                // 特别处理生活管理和创意激发标签的线条
+                const lifeTag = document.querySelector('.ai-tag.life');
+                const creativeTag = document.querySelector('.ai-tag.creative');
+                
+                if (lifeTag && lifeTag.dataset.line) {
+                    const lifeLine = container.querySelector(`.${lifeTag.dataset.line}`);
+                    if (lifeLine) {
+                        const rect = lifeTag.getBoundingClientRect();
+                        const tagX = rect.left - containerRect.left + rect.width/2;
+                        const tagY = rect.top - containerRect.top + rect.height/2;
+                        
+                        // 重新设置线条起点
+                        lifeLine.setAttribute('x1', tagX);
+                        lifeLine.setAttribute('y1', tagY);
+                    }
+                }
+                
+                if (creativeTag && creativeTag.dataset.line) {
+                    const creativeLine = container.querySelector(`.${creativeTag.dataset.line}`);
+                    if (creativeLine) {
+                        const rect = creativeTag.getBoundingClientRect();
+                        const tagX = rect.left - containerRect.left + rect.width/2;
+                        const tagY = rect.top - containerRect.top + rect.height/2;
+                        
+                        // 重新设置线条起点
+                        creativeLine.setAttribute('x1', tagX);
+                        creativeLine.setAttribute('y1', tagY);
+                    }
+                }
+                
+                return { containerRect, aiCenterX, aiCenterY, tags };
+            }
+            
+            // 更新线条位置，跟随标签移动
+            function updateLines() {
+                const container = document.querySelector('.ai-convergence-container');
+                if (!container) return;
+                
+                const containerRect = container.getBoundingClientRect();
+                
+                // 获取中心AI图标位置
+                const aiCenter = document.querySelector('.ai-center');
+                if (!aiCenter) return;
+                
+                const aiCenterImg = aiCenter.querySelector('img');
+                if (!aiCenterImg) return;
+                
+                const centerImgRect = aiCenterImg.getBoundingClientRect();
+                const aiCenterX = centerImgRect.left - containerRect.left + centerImgRect.width/2;
+                const aiCenterY = centerImgRect.top - containerRect.top + centerImgRect.height/2 + 5;
+                
+                // 获取所有标签
+                const tags = document.querySelectorAll('.ai-tag');
+                
+                // 更新每个标签对应的线条
+                tags.forEach(tag => {
+                    if (tag.dataset.line) {
+                        const line = container.querySelector(`.${tag.dataset.line}`);
+                        if (line) {
+                            // 获取标签当前位置，确保精确对齐
+                            const tagRect = tag.getBoundingClientRect();
+                            const currentX = tagRect.left - containerRect.left + tagRect.width/2;
+                            const currentY = tagRect.top - containerRect.top + tagRect.height/2;
+                            
+                            // 更新线条位置
+                            line.setAttribute('x1', currentX);
+                            line.setAttribute('y1', currentY);
+                            line.setAttribute('x2', aiCenterX);
+                            line.setAttribute('y2', aiCenterY);
+                        }
+                    }
+                });
+                
+                // 如果鼠标仍在产品上，继续更新
+                if (container.closest('.product-item:hover')) {
+                    requestAnimationFrame(updateLines);
+                }
+            }
+            
+            // 初始设置 - 增加延迟确保DOM完全渲染
+            setTimeout(setupTagsAndLines, 1200);
+            
+            // 窗口大小改变时重新计算
+            window.addEventListener('resize', setupTagsAndLines);
+            
+            // 当鼠标进入产品项时
+            const aiProduct = document.querySelector('.product-item:nth-child(2)');
+            if (aiProduct) {
+                aiProduct.addEventListener('mouseenter', function() {
+                    // 重新设置标签和线条
+                    setupTagsAndLines();
+                    // 开始动画更新
+                    requestAnimationFrame(updateLines);
+                    
+                    // 特别处理生活管理和创意激发标签
+                    setTimeout(() => {
+                        const container = document.querySelector('.ai-convergence-container');
+                        if (!container) return;
+                        
+                        const containerRect = container.getBoundingClientRect();
+                        
+                        // 特别处理生活管理标签
+                        const lifeTag = document.querySelector('.ai-tag.life');
+                        if (lifeTag && lifeTag.dataset.line) {
+                            const lifeLine = container.querySelector(`.${lifeTag.dataset.line}`);
+                            if (lifeLine) {
+                                const rect = lifeTag.getBoundingClientRect();
+                                const tagX = rect.left - containerRect.left + rect.width/2;
+                                const tagY = rect.top - containerRect.top + rect.height/2;
+                                
+                                // 重新设置线条起点
+                                lifeLine.setAttribute('x1', tagX);
+                                lifeLine.setAttribute('y1', tagY);
+                            }
+                        }
+                        
+                        // 特别处理创意激发标签
+                        const creativeTag = document.querySelector('.ai-tag.creative');
+                        if (creativeTag && creativeTag.dataset.line) {
+                            const creativeLine = container.querySelector(`.${creativeTag.dataset.line}`);
+                            if (creativeLine) {
+                                const rect = creativeTag.getBoundingClientRect();
+                                const tagX = rect.left - containerRect.left + rect.width/2;
+                                const tagY = rect.top - containerRect.top + rect.height/2;
+                                
+                                // 重新设置线条起点
+                                creativeLine.setAttribute('x1', tagX);
+                                creativeLine.setAttribute('y1', tagY);
+                            }
+                        }
+                    }, 100);
+                });
+            }
+        });
+    </script>
+
+    <script>
+        // 为所有标签添加动画监听，确保线条始终跟随标签移动
+        document.addEventListener('DOMContentLoaded', function() {
+            // 等待页面完全加载
+            setTimeout(() => {
+                // 获取所有标签
+                const tags = document.querySelectorAll('.ai-tag');
+                const container = document.querySelector('.ai-convergence-container');
+                
+                if (!container || !tags.length) return;
+                
+                // 创建一个通用的线条更新函数
+                function updateAllLines() {
+                    const containerRect = container.getBoundingClientRect();
+                    
+                    // 获取中心AI图标位置
+                    const aiCenter = document.querySelector('.ai-center');
+                    if (!aiCenter) return;
+                    
+                    const aiCenterImg = aiCenter.querySelector('img');
+                    if (!aiCenterImg) return;
+                    
+                    const centerImgRect = aiCenterImg.getBoundingClientRect();
+                    const aiCenterX = centerImgRect.left - containerRect.left + centerImgRect.width/2;
+                    const aiCenterY = centerImgRect.top - containerRect.top + centerImgRect.height/2 + 5;
+                    
+                    // 更新所有标签的线条
+                    tags.forEach(tag => {
+                        // 获取标签类名（如work, study等）
+                        const tagClass = Array.from(tag.classList).find(cls => 
+                            ['work', 'study', 'life', 'creative', 'research', 'coding', 'parenting', 'fitness'].includes(cls)
+                        );
+                        
+                        if (tagClass) {
+                            const line = container.querySelector(`.${tagClass}-line`);
+                            if (line) {
+                                const rect = tag.getBoundingClientRect();
+                                const tagX = rect.left - containerRect.left + rect.width/2;
+                                const tagY = rect.top - containerRect.top + rect.height/2;
+                                
+                                // 更新线条位置
+                                line.setAttribute('x1', tagX);
+                                line.setAttribute('y1', tagY);
+                                line.setAttribute('x2', aiCenterX);
+                                line.setAttribute('y2', aiCenterY);
+                            }
+                        }
+                    });
+                    
+                    // 如果鼠标仍在产品上，继续更新
+                    if (container.closest('.product-item:hover')) {
+                        requestAnimationFrame(updateAllLines);
+                    }
+                }
+                
+                // 监听产品项的鼠标进入事件
+                const aiProduct = document.querySelector('.product-item:nth-child(2)');
+                if (aiProduct) {
+                    aiProduct.addEventListener('mouseenter', function() {
+                        // 开始持续更新所有线条位置
+                        requestAnimationFrame(updateAllLines);
+                    });
+                }
+            }, 2000);
+        });
+    </script>
+
+    <script>
+        // 修复热点播报标签在动画结束后断开的问题
+        document.addEventListener('DOMContentLoaded', function() {
+            // 等待页面完全加载
+            setTimeout(() => {
+                // 获取热点播报标签和线条
+                const codingTag = document.querySelector('.ai-tag.coding');
+                const container = document.querySelector('.ai-convergence-container');
+                
+                if (!container || !codingTag) return;
+                
+                // 创建一个专门用于热点播报标签的更新函数
+                function updateCodingTagLine() {
+                    const containerRect = container.getBoundingClientRect();
+                    
+                    // 获取中心AI图标位置
+                    const aiCenter = document.querySelector('.ai-center');
+                    if (!aiCenter) return;
+                    
+                    const aiCenterImg = aiCenter.querySelector('img');
+                    if (!aiCenterImg) return;
+                    
+                    const centerImgRect = aiCenterImg.getBoundingClientRect();
+                    const aiCenterX = centerImgRect.left - containerRect.left + centerImgRect.width/2;
+                    const aiCenterY = centerImgRect.top - containerRect.top + centerImgRect.height/2 + 5;
+                    
+                    // 获取热点播报标签和线条
+                    const codingLine = container.querySelector('.coding-line');
+                    
+                    if (codingTag && codingLine) {
+                        const rect = codingTag.getBoundingClientRect();
+                        const tagX = rect.left - containerRect.left + rect.width/2;
+                        const tagY = rect.top - containerRect.top + rect.height/2;
+                        
+                        // 更新线条位置 - 确保线条始终连接到标签
+                        codingLine.setAttribute('x1', tagX);
+                        codingLine.setAttribute('y1', tagY);
+                        codingLine.setAttribute('x2', aiCenterX);
+                        codingLine.setAttribute('y2', aiCenterY);
+                        
+                        // 确保线条可见
+                        codingLine.style.opacity = '0.7';
+                        codingLine.style.display = 'block';
+                        
+                        // 将线条与标签关联
+                        codingTag.dataset.line = 'coding-line';
+                    }
+                }
+                
+                // 监听产品项的鼠标进入和离开事件
+                const aiProduct = document.querySelector('.product-item:nth-child(2)');
+                if (aiProduct) {
+                    let animationFrameId = null;
+                    
+                    // 鼠标进入时开始更新
+                    aiProduct.addEventListener('mouseenter', function() {
+                        // 取消之前的动画帧请求
+                        if (animationFrameId) {
+                            cancelAnimationFrame(animationFrameId);
+                        }
+                        
+                        // 开始持续更新热点播报标签线条
+                        function animate() {
+                            updateCodingTagLine();
+                            animationFrameId = requestAnimationFrame(animate);
+                        }
+                        
+                        animate();
+                    });
+                    
+                    // 鼠标离开时停止更新
+                    aiProduct.addEventListener('mouseleave', function() {
+                        // 取消动画帧请求
+                        if (animationFrameId) {
+                            cancelAnimationFrame(animationFrameId);
+                            animationFrameId = null;
+                        }
+                    });
+                }
+                
+                // 直接修改moveToCenter动画结束时的行为
+                const style = document.createElement('style');
+                style.textContent = `
+                    /* 确保动画结束后标签保持在最终位置 */
+                    .product-item:hover .ai-tag.coding {
+                        animation-fill-mode: forwards !important;
+                    }
+                    
+                    /* 确保线条在动画结束后仍然可见 */
+                    .product-item:hover .connection-line.coding-line {
+                        opacity: 0.7 !important;
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                // 监听动画结束事件
+                codingTag.addEventListener('animationend', function() {
+                    // 确保动画结束后线条仍然连接到标签
+                    updateCodingTagLine();
+                    
+                    // 设置一个定时器，在动画结束后持续更新一段时间
+                    let count = 0;
+                    const interval = setInterval(() => {
+                        updateCodingTagLine();
+                        count++;
+                        if (count > 10) {
+                            clearInterval(interval);
+                        }
+                    }, 100);
+                });
+            }, 2000);
+        });
+    </script>
+</body>
+</html> 
