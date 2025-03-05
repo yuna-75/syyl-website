@@ -1,0 +1,299 @@
+/* 职位详情页样式 */
+.job-details-section {
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 80px;
+    background-color: var(--color-neutral-9);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 添加背景装饰元素 */
+.job-details-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--color-brand-rgb-1), 0.05) 0%, rgba(var(--color-brand-rgb-1), 0) 70%);
+    z-index: 0;
+}
+
+.job-details-section::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--color-brand-rgb-2), 0.05) 0%, rgba(var(--color-brand-rgb-2), 0) 70%);
+    z-index: 0;
+}
+
+.job-details-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(var(--color-neutral-rgb-1), 0.02);
+    border: 1px solid rgba(var(--color-neutral-rgb-1), 0.1);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+/* 返回按钮样式 */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(var(--color-neutral-rgb-1), 0.7);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: var(--color-neutral-1);
+}
+
+.back-button svg {
+    transition: transform 0.3s ease;
+}
+
+.back-button:hover svg {
+    transform: translateX(-3px);
+}
+
+/* 职位标题样式 */
+.job-title {
+    font-size: var(--font-size-3xl);
+    line-height: 1.2;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-neutral-1);
+    margin: 0 0 15px 0;
+}
+
+/* 职位元信息样式 */
+.job-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.job-location, .job-type {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    color: rgba(var(--color-neutral-rgb-1), 0.8);
+    background: rgba(var(--color-neutral-rgb-1), 0.05);
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+/* 职位内容区域样式 */
+.job-details-body {
+    margin-bottom: 40px;
+}
+
+.job-section {
+    margin-bottom: 30px;
+}
+
+.job-section h2 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-neutral-1);
+    margin: 0 0 15px 0;
+    position: relative;
+    display: inline-block;
+}
+
+.job-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--color-brand-2);
+    opacity: 0.7;
+}
+
+.job-description-content p {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: rgba(var(--color-neutral-rgb-1), 0.8);
+    margin-bottom: 15px;
+}
+
+.job-requirements, .job-benefits {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.job-requirements li, .job-benefits li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: rgba(var(--color-neutral-rgb-1), 0.8);
+}
+
+.job-requirements li::before, .job-benefits li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-brand-2);
+}
+
+/* 底部申请按钮样式 */
+.job-details-footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(var(--color-neutral-rgb-1), 0.1);
+}
+
+.apply-button.large {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--color-brand-2);
+    color: var(--color-neutral-10);
+    border: 1px solid var(--color-brand-2);
+    border-radius: 8px;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.apply-button.large:hover {
+    background-color: var(--color-brand-1);
+    border-color: var(--color-brand-1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(var(--color-brand-rgb-2), 0.3);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .job-details-content {
+        padding: 30px;
+    }
+    
+    .job-title {
+        font-size: var(--font-size-2xl);
+    }
+}
+
+@media (max-width: 576px) {
+    .job-details-section {
+        padding-top: 80px;
+    }
+    
+    .job-details-content {
+        padding: 20px;
+    }
+    
+    .job-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .job-location, .job-type {
+        display: inline-block;
+    }
+}
+
+/* 添加职位导航样式 */
+.job-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(var(--color-neutral-rgb-1), 0.1);
+}
+
+.prev-job-button,
+.next-job-button {
+    display: flex;
+    align-items: center;
+    color: var(--color-brand-2);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.prev-job-button.disabled,
+.next-job-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.prev-job-button svg,
+.next-job-button svg {
+    margin: 0 8px;
+}
+
+.prev-job-button:hover,
+.next-job-button:hover {
+    opacity: 0.8;
+}
+
+/* 添加额外联系信息的样式 */
+.additional-contact {
+    margin-top: 20px;
+    font-size: var(--font-size-sm);
+    color: rgba(var(--color-neutral-rgb-1), 0.7);
+    line-height: var(--line-height-relaxed);
+}
+
+.additional-contact a {
+    color: var(--color-brand-2);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.additional-contact a:hover {
+    color: var(--color-brand-1);
+    text-decoration: underline;
+}
+
+/* 修改工作职责部分的样式，使其与岗位要求完全一致 */
+.job-responsibilities {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 16px;
+}
+
+.job-responsibilities li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: rgba(var(--color-neutral-rgb-1), 0.8);
+}
+
+.job-responsibilities li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-brand-2);
+}
+
+/* 确保在暗色模式下也有正确的样式 */
+.theme-light .job-responsibilities li::before {
+    background-color: var(--color-primary-light);
+} 

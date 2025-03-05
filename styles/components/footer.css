@@ -1,0 +1,62 @@
+/* 页脚样式 */
+.footer {
+    padding: 30px 0;
+    background-color: var(--color-neutral-9);
+    border-top: 1px solid rgba(var(--color-neutral-rgb-1), 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-info {
+    width: 100%;
+}
+
+.copyright {
+    font-size: var(--font-size-sm);
+    color: rgba(var(--color-neutral-rgb-1), 0.6);
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.footer-links a, .footer-links span {
+    font-size: var(--font-size-xs);
+    color: rgba(var(--color-neutral-rgb-1), 0.5);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-brand-2);
+}
+
+.divider {
+    color: rgba(var(--color-neutral-rgb-1), 0.3);
+}
+
+/* 响应式调整 */
+@media (max-width: 576px) {
+    .footer {
+        padding: 20px 0;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .divider {
+        display: none;
+    }
+} 

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>职位详情 - 成都数有引力科技有限公司</title>
+    
+    <!-- 使用公司logo作为favicon -->
+    <link rel="icon" href="./images/logo.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="styles/tokens/colors.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components/navbar.css">
+    <link rel="stylesheet" href="styles/tokens/typography.css">
+    <link rel="stylesheet" href="styles/components/job-details.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <img src="./images/logo.svg" alt="公司logo" width="48" height="48">
+                    <span class="company-name">成都数有引力科技有限公司</span>
+                </a>
+            </div>
+            <div class="navbar-right">
+                <ul class="navbar-menu">
+                    <li><a href="index.html#hero" class="navbar-menu-item">首页</a></li>
+                    <li><a href="index.html#products" class="navbar-menu-item">产品中心</a></li>
+                    <li><a href="index.html#about" class="navbar-menu-item">关于我们</a></li>
+                    <li><a href="index.html#join" class="navbar-menu-item active">加入我们</a></li>
+                </ul>
+                <button class="theme-toggle" aria-label="切换主题模式">
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3C10.8 4.2 10.1 5.8 10.1 7.5C10.1 11.1 13 14 16.6 14C18.3 14 19.9 13.3 21.1 12.1C21.1 17 17.2 21 12.3 21C7.3 21 3.4 17.1 3.4 12.1C3.4 7.2 7.3 3.3 12.3 3.3C12.2 3.3 12.1 3.3 12 3.3V3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3V4M12 20V21M21 12H20M4 12H3M18.4 18.4L17.7 17.7M6.3 6.3L5.6 5.6M18.4 5.6L17.7 6.3M6.3 17.7L5.6 18.4M16 12C16 14.2 14.2 16 12 16C9.8 16 8 14.2 8 12C8 9.8 9.8 8 12 8C14.2 8 16 9.8 16 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <section class="job-details-section">
+            <div class="container">
+                <div class="job-details-content">
+                    <div class="job-details-header">
+                        <a href="index.html#join" class="back-button">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            返回职位列表
+                        </a>
+                        <h1 class="job-title">职位名称</h1>
+                        <div class="job-meta">
+                            <span class="job-location">工作地点</span>
+                            <span class="job-type">职位性质</span>
+                        </div>
+                    </div>
+                    
+                    <div class="job-details-body">
+                        <div class="job-section">
+                            <h2>职位描述</h2>
+                            <div class="job-description-content">
+                                <!-- 职位描述内容 -->
+                            </div>
+                        </div>
+                        
+                        <div class="job-section">
+                            <h2>岗位要求</h2>
+                            <ul class="job-requirements">
+                                <!-- 岗位要求列表 -->
+                            </ul>
+                        </div>
+                        
+                        <div class="job-section">
+                            <h2>我们提供</h2>
+                            <ul class="job-benefits">
+                                <!-- 福利待遇列表 -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="job-details-footer">
+                        <!-- 添加职位导航 -->
+                        <div class="job-navigation">
+                            <a href="#" class="prev-job-button" id="prevJobButton">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                上一个职位
+                            </a>
+                            <a href="#" class="next-job-button" id="nextJobButton">
+                                下一个职位
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                        
+                        <a href="mailto:huangh@shuyouyinli.com" class="apply-button large">申请此职位</a>
+                        
+                        <!-- 添加额外联系信息 -->
+                        <p class="additional-contact">没有找到合适的职位？发送简历至 <a href="mailto:huangh@shuyouyinli.com">huangh@shuyouyinli.com</a>，我们期待与你交流。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p class="copyright">Copyright © 2023-2025 成都数有引力科技有限公司 All Rights Reserved.</p>
+                    <div class="footer-links">
+                        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" class="beian">蜀ICP备2023013366号-1</a>
+                        <span class="divider">|</span>
+                        <span class="wangxin">网信算备510107638890201230017号</span>
+                        <span class="divider">|</span>
+                        <a href="/sitemap.xml" class="sitemap">sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 主题切换功能
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        
+        // 检查本地存储中的主题设置
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            // 切换主题类
+            body.classList.toggle('theme-light');
+            
+            // 保存主题设置到本地存储
+            const currentTheme = body.classList.contains('theme-light') ? 'theme-light' : '';
+            localStorage.setItem('theme', currentTheme);
+        });
+        
+        // 获取URL参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobId = urlParams.get('id');
+        
+        // 根据职位ID加载相应的职位详情
+        loadJobDetails(jobId);
+        
+        function loadJobDetails(id) {
+            // 职位数据
+            const jobsData = {
+                'ai-algorithm': {
+                    title: '大模型算法',
+                    location: '北京·朝阳区',
+                    type: '全职',
+                    description: `
+                        <p>作为大模型算法工程师，您将负责探究大语言模型的能力边界，测试并评估开源大语言模型的性能，为公司的AI产品提供技术支持。</p>
+                        <p>这个角色需要您对大语言模型有深入的了解，能够系统性地评估模型性能，并协助开发团队构建基于大模型的应用工具。</p>
+                    `,
+                    requirements: [
+                        '本科及以上学历，计算机科学、人工智能或相关专业',
+                        '经验不限，对大语言模型和AI技术有浓厚兴趣',
+                        '熟悉Python编程，了解机器学习和深度学习基础知识',
+                        '具备良好的数据分析能力和问题解决能力',
+                        '良好的沟通能力和团队协作精神'
+                    ],
+                    benefits: [
+                        '具有市场竞争力的薪资和股权激励',
+                        '灵活的工作时间和地点',
+                        '丰富的专业发展和学习机会',
+                        '定期的团队建设活动',
+                        '完善的医疗保险和其他福利'
+                    ],
+                    responsibilities: [
+                        '探究大语言模型的能力边界，测试并评估开源大语言模型的性能',
+                        '撰写评估报告，详细记录大语言模型的测试结果、优势和局限',
+                        '根据大语言模型的能力，协助开发和构建Tool，支持AI Agent的创建',
+                        '进行数据处理和分析，优化大语言模型的应用效果，提升模型性能'
+                    ]
+                },
+                'product-specialist': {
+                    title: '产品专员',
+                    location: '北京·朝阳区',
+                    type: '全职',
+                    description: `
+                        <p>作为产品专员，您将负责需求分析管理、测试、上线及反馈的全周期工作，参与产品规划和设计，推进项目落地，并持续优化产品体验。</p>
+                        <p>这个角色需要您具备良好的沟通协调能力和结构化思维，能够深入理解用户需求，并与各部门紧密合作，确保产品的成功交付。</p>
+                    `,
+                    requirements: [
+                        '本科及以上学历，金融或计算机相关专业',
+                        '在校/应届毕业生',
+                        '良好的沟通表达能力和跨部门协调能力，较强学习能力和执行力',
+                        '目标导向、自驱性强，边界感弱，对达成目标有强烈渴望',
+                        '对产品有owner意识，能在较大压力下保持工作激情',
+                        '结构化思维好，对数据敏感，能够深入分析需求',
+                        '对用户心理和深层需求有探究精神，具备良好的同理心和换位思考能力'
+                    ],
+                    benefits: [
+                        '具有市场竞争力的薪资和股权激励',
+                        '灵活的工作时间和地点',
+                        '丰富的专业发展和学习机会',
+                        '定期的团队建设活动',
+                        '完善的医疗保险和其他福利'
+                    ],
+                    responsibilities: [
+                        '参与公司产品/模块等需求分析，编写需求说明书、功能说明书、用户操作手册等文档',
+                        '参与需求涉及上下游系统间的需求评审、计划排期、进度跟踪、产品测试、问题协调等，推进项目落地',
+                        '参与活动推广方案和销售策略的制定，协调内外部资源，推动设计、开发与运营等部门落地方案',
+                        '参与跟踪产品上线后的运营效果，通过数据搜集及分析对产品进行持续迭代和升级'
+                    ]
+                },
+                'backend-intern': {
+                    title: '后端开发工程师（实习）',
+                    location: '成都·武侯区',
+                    type: '实习',
+                    description: `
+                        <p>作为后端开发工程师实习生，您将在团队指导下参与公司产品的后端开发工作，包括现有行情产品的优化、AI创新产品探索等。这是一个了解行业前沿技术并积累实战经验的绝佳机会。</p>
+                        <p>我们提供3天/周、为期3个月的实习机会，优秀者有留用机会。</p>
+                    `,
+                    requirements: [
+                        '本科及以上学历，计算机相关专业',
+                        '熟悉计算机基础知识，深入理解面向对象设计开发，熟悉数据结构及操作系统基础知识',
+                        '理解io、多线程、集合等java基础框架，熟练掌握java核心编程技术',
+                        '熟悉mysql关系型数据库、能熟练编写sql、熟悉redis等非关系型数据库',
+                        '了解微服务架构，熟悉SpringBoot，Mybatis等框架',
+                        '了解分布式、缓存、消息等机制及使用场景',
+                        '了解常用的设计模式及算法',
+                        '喜欢并愿意钻研前沿的AI技术',
+                        '有强烈的求知欲，优秀的学习和沟通能力',
+                        '可长期实习，发放实习津贴，优秀者有留用机会'
+                    ],
+                    benefits: [
+                        '有竞争力的实习津贴',
+                        '弹性的实习时间（3天/周）',
+                        '丰富的学习和成长机会',
+                        '与行业专家共事的宝贵经验',
+                        '优秀者有转正机会'
+                    ],
+                    responsibilities: [
+                        '负责协助团队完成产品的后端开发任务，包括现有行情产品的优化、AI创新产品探索等',
+                        '在团队的指导下，完成数据算法的开发工作',
+                        '负责迭代AI代码生成、AI代码检测等内部工具'
+                    ]
+                },
+                'frontend-intern': {
+                    title: '前端开发工程师（实习）',
+                    location: '成都·武侯区',
+                    type: '实习',
+                    description: `
+                        <p>我们正在寻找一位充满激情的前端开发实习生，加入我们的团队，参与AI创新产品的前端开发工作。你将有机会接触最新的前端技术和框架，参与真实项目的开发，并从经验丰富的团队成员那里学习。</p>
+                    `,
+                    responsibilities: [
+                        '协助团队完成产品的前端页面开发任务',
+                        '根据设计稿实现响应式、交互性强的用户界面',
+                        '优化网站性能，确保良好的用户体验',
+                        '参与代码审查，提高代码质量',
+                        '与后端开发人员协作，确保前后端数据交互的顺畅'
+                    ],
+                    requirements: [
+                        '计算机科学或相关专业在校学生',
+                        '熟悉HTML、CSS、JavaScript等前端基础技术',
+                        '了解React、Vue等主流前端框架',
+                        '对前端开发有浓厚兴趣，有学习新技术的热情',
+                        '有良好的团队协作能力和沟通能力',
+                        '有个人项目或开源贡献经验者优先'
+                    ],
+                    benefits: [
+                        '有竞争力的实习薪资',
+                        '弹性工作时间',
+                        '参与真实项目开发的机会',
+                        '导师指导和技术培训',
+                        '优秀实习生有转正机会',
+                        '舒适的办公环境和团队氛围'
+                    ]
+                },
+                'product-manager-intern': {
+                    title: '产品经理（实习）',
+                    location: '北京·朝阳区',
+                    type: '实习',
+                    description: `
+                        <p>作为产品经理实习生，您将参与公司行情类产品的策划、管理和优化工作，并有机会将AI技术融入产品设计中。这是一个了解金融科技产品开发流程并积累实战经验的绝佳机会。</p>
+                        <p>我们提供3天/周、为期3个月的实习机会，优秀者有留用机会。</p>
+                    `,
+                    requirements: [
+                        '本科以上学历，金融、经济相关专业优先',
+                        '具备良好的学习能力、推动能力、统筹协调能力、自我驱动能力、抗压能力',
+                        '具备良好的团队合作精神，能够与跨部门团队合作，推动产品开发',
+                        '对产品有owner意识，能在较大压力下保持工作激情',
+                        '熟练墨刀、Axure、Office等常用办公工具',
+                        '喜欢并愿意钻研前沿的AI技术',
+                        '有强烈的求知欲，优秀的学习和沟通能力',
+                        '可长期实习，发放实习津贴，优秀者有留用机会'
+                    ],
+                    benefits: [
+                        '有竞争力的实习津贴',
+                        '弹性的实习时间（3天/周）',
+                        '丰富的学习和成长机会',
+                        '与行业专家共事的宝贵经验',
+                        '优秀者有转正机会'
+                    ],
+                    responsibilities: [
+                        '产品策划与文档编写：根据公司产品规划，输出行情类产品方案，编写需求说明书、功能说明书、用户操作手册等文档',
+                        '项目管理与问题协调：负责需求评审，计划排期，进度跟踪，产品测试，问题协调，确保项目顺利落地',
+                        '用户反馈与产品优化：对于上线的需求能够跟进业务及运营反馈，分析后形成可执行的后续迭代优化方案，形成闭环',
+                        '推广策略与资源协调：制订活动推广方案和销售策略，协调内外部资源，推动相关部门方案执行',
+                        '运营效果跟踪与迭代：跟踪产品运营效果，通过数据分析，对产品进行持续迭代和升级',
+                        'AI技术应用：将AI技术融入产品设计和运营中，能够通过AI提高产品智能化水平和产能'
+                    ]
+                }
+            };
+            
+            // 获取职位数据
+            const jobData = jobsData[id];
+            if (!jobData) {
+                // 如果没有找到对应的职位数据，显示错误信息或重定向
+                document.querySelector('.job-title').textContent = '职位不存在';
+                document.querySelector('.job-details-body').innerHTML = '<p>抱歉，未找到该职位信息。</p>';
+                document.querySelector('.job-details-footer').style.display = 'none';
+                return;
+            }
+            
+            // 更新页面标题
+            document.title = `${jobData.title} - 成都数有引力科技有限公司`;
+            
+            // 更新职位信息
+            document.querySelector('.job-title').textContent = jobData.title;
+            document.querySelector('.job-location').textContent = jobData.location;
+            document.querySelector('.job-type').textContent = jobData.type;
+            document.querySelector('.job-description-content').innerHTML = jobData.description;
+            
+            // 添加职责部分（如果存在）
+            if (jobData.responsibilities) {
+                const responsibilitiesSection = document.createElement('div');
+                responsibilitiesSection.className = 'job-section';
+                responsibilitiesSection.innerHTML = `
+                    <h2>工作职责</h2>
+                    <ul class="job-responsibilities"></ul>
+                `;
+                
+                // 插入到职位描述之后
+                const descriptionSection = document.querySelector('.job-section');
+                descriptionSection.parentNode.insertBefore(responsibilitiesSection, descriptionSection.nextSibling);
+                
+                // 填充职责列表
+                const responsibilitiesList = document.querySelector('.job-responsibilities');
+                jobData.responsibilities.forEach(resp => {
+                    const li = document.createElement('li');
+                    li.textContent = resp;
+                    responsibilitiesList.appendChild(li);
+                });
+            }
+            
+            // 更新岗位要求
+            const requirementsList = document.querySelector('.job-requirements');
+            requirementsList.innerHTML = '';
+            jobData.requirements.forEach(req => {
+                const li = document.createElement('li');
+                li.textContent = req;
+                requirementsList.appendChild(li);
+            });
+            
+            // 更新福利待遇
+            const benefitsList = document.querySelector('.job-benefits');
+            benefitsList.innerHTML = '';
+            jobData.benefits.forEach(benefit => {
+                const li = document.createElement('li');
+                li.textContent = benefit;
+                benefitsList.appendChild(li);
+            });
+
+            // 在加载完职位详情后设置导航
+            setupJobNavigation(id);
+        }
+
+        // 处理返回按钮点击事件
+        document.querySelector('.back-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // 使用更可靠的方法：直接设置一个标记和时间戳
+            localStorage.setItem('scrollToJoin', Date.now());
+            
+            // 跳转到主页
+            window.location.href = 'index.html';
+        });
+
+        // 职位导航功能
+        function setupJobNavigation(currentJobId) {
+            // 定义职位ID的顺序
+            const jobIds = ['ai-algorithm', 'product-specialist', 'backend-intern', 'frontend-intern', 'product-manager-intern'];
+            
+            // 获取当前职位在数组中的索引
+            const currentIndex = jobIds.indexOf(currentJobId);
+            
+            // 获取上一个和下一个职位的按钮
+            const prevButton = document.getElementById('prevJobButton');
+            const nextButton = document.getElementById('nextJobButton');
+            
+            // 如果是第一个职位，禁用"上一个"按钮
+            if (currentIndex === 0) {
+                prevButton.classList.add('disabled');
+                prevButton.href = 'javascript:void(0)';
+            } else {
+                prevButton.href = `job-details.html?id=${jobIds[currentIndex - 1]}`;
+            }
+            
+            // 如果是最后一个职位，禁用"下一个"按钮
+            if (currentIndex === jobIds.length - 1) {
+                nextButton.classList.add('disabled');
+                nextButton.href = 'javascript:void(0)';
+            } else {
+                nextButton.href = `job-details.html?id=${jobIds[currentIndex + 1]}`;
+            }
+        }
+
+        // 添加导航栏滚动效果脚本
+        const navbar = document.querySelector('.navbar');
+        let lastScrollTop = 0;
+        let ticking = false;
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    // 当滚动超过导航栏高度时添加阴影效果
+                    if (currentScrollTop > 0) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                    
+                    lastScrollTop = currentScrollTop;
+                    ticking = false;
+                });
+                
+                ticking = true;
+            }
+        });
+    </script>
+</body>
+</html> 

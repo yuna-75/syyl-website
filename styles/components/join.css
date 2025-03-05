@@ -1,0 +1,237 @@
+/* 加入我们部分样式 */
+.join {
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: var(--color-neutral-9);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* 添加背景装饰元素 */
+.join::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--color-brand-rgb-1), 0.05) 0%, rgba(var(--color-brand-rgb-1), 0) 70%);
+    z-index: 0;
+}
+
+.join::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--color-brand-rgb-2), 0.05) 0%, rgba(var(--color-brand-rgb-2), 0) 70%);
+    z-index: 0;
+}
+
+.join-content {
+    text-align: left;
+    position: relative;
+    z-index: 1;
+}
+
+/* 标题样式 */
+.join h2 {
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-2xl);
+    font-weight: var(--font-weight-semibold);
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--color-neutral-1);
+    position: relative;
+    display: inline-block;
+}
+
+/* 描述文字样式 */
+.join-description {
+    width: 100%;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.join-description p {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: rgba(var(--color-neutral-rgb-1), 0.8);
+    margin-bottom: 20px;
+    text-shadow: 0 0 1px rgba(var(--color-neutral-rgb-1), 0.05);
+    max-width: 100%;
+}
+
+/* 职位分类样式 */
+.jobs-container {
+    margin-bottom: 50px;
+}
+
+.job-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* 职位卡片样式 */
+.job-item {
+    padding: 25px;
+    background: rgba(var(--color-neutral-rgb-1), 0.02);
+    border: 1px solid rgba(var(--color-neutral-rgb-1), 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(5px);
+}
+
+.job-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(var(--color-brand-rgb-2), 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* 职位标题行样式 */
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.job-header h4 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-neutral-1);
+    margin: 0;
+}
+
+.job-location {
+    font-size: var(--font-size-sm);
+    color: rgba(var(--color-neutral-rgb-1), 0.7);
+    background: rgba(var(--color-neutral-rgb-1), 0.05);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+/* 职位描述样式 */
+.job-description {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: rgba(var(--color-neutral-rgb-1), 0.8);
+    margin-bottom: 20px;
+}
+
+/* 职位底部样式 */
+.job-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* 查看详情按钮样式 */
+.view-details-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: rgba(var(--color-neutral-rgb-1), 0.05);
+    color: rgba(var(--color-neutral-rgb-1), 0.8);
+    border: 1px solid rgba(var(--color-neutral-rgb-1), 0.1);
+    border-radius: 6px;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.view-details-button:hover {
+    background-color: rgba(var(--color-neutral-rgb-1), 0.1);
+    color: var(--color-neutral-1);
+    border-color: rgba(var(--color-neutral-rgb-1), 0.2);
+}
+
+/* 申请按钮样式 */
+.apply-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: rgba(var(--color-brand-rgb-2), 0.1);
+    color: var(--color-brand-2);
+    border: 1px solid rgba(var(--color-brand-rgb-2), 0.2);
+    border-radius: 6px;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.apply-button:hover {
+    background-color: var(--color-brand-2);
+    color: var(--color-neutral-10);
+    border-color: var(--color-brand-2);
+}
+
+/* 底部联系信息样式 */
+.join-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(var(--color-neutral-rgb-1), 0.1);
+}
+
+.join-footer p {
+    font-size: var(--font-size-base);
+    color: rgba(var(--color-neutral-rgb-1), 0.7);
+}
+
+.join-footer a {
+    color: var(--color-brand-2);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.join-footer a:hover {
+    color: var(--color-brand-1);
+    text-decoration: underline;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .job-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .join {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    
+    .job-item {
+        padding: 20px;
+    }
+    
+    .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .job-location {
+        align-self: flex-start;
+    }
+    
+    .job-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    
+    .view-details-button, .apply-button {
+        text-align: center;
+    }
+} 

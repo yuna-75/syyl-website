@@ -13,9 +13,9 @@
 
 /* 滚动时的效果 */
 .navbar.scrolled {
-  background-color: rgba(var(--color-neutral-rgb-9), 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(var(--color-neutral-rgb-10), 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(var(--color-neutral-rgb-1), 0.1);
   box-shadow: 
     0 4px 6px -1px rgba(var(--color-neutral-rgb-9), 0.1),
@@ -32,13 +32,19 @@
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Logo 滚动效果 */
-.navbar.scrolled .navbar-brand {
-  transform: scale(0.95);
+.navbar-brand a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-neutral-1);
+}
+
+.company-name {
+  margin-left: 12px;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
 }
 
 .navbar-logo {
@@ -47,20 +53,6 @@
 
 .navbar.scrolled .navbar-logo {
   transform: rotate(-2deg);
-}
-
-.company-name {
-  font-size: var(--font-size-base);    /* 16px */
-  line-height: var(--line-height-base); /* 24px */
-  font-weight: var(--font-weight-medium);
-  color: var(--color-neutral-1);
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.navbar.scrolled .company-name {
-  transform: translateX(-4px);
-  opacity: 0.9;
 }
 
 .navbar-menu {

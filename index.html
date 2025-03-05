@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
+    <title>成都数有引力科技有限公司</title>
+    
+    <!-- 使用公司logo作为favicon -->
+    <link rel="icon" href="./images/logo.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+    
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/tokens/colors.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/components/navbar.css">
     <link rel="stylesheet" href="styles/components/hero.css">
     <link rel="stylesheet" href="styles/components/products.css">
+    <link rel="stylesheet" href="styles/components/about.css">
+    <link rel="stylesheet" href="styles/components/join.css">
     <link rel="stylesheet" href="styles/tokens/typography.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="styles/components/footer.css">
 </head>
 <body>
     <nav class="navbar">
@@ -23,15 +33,15 @@
                 <ul class="navbar-menu">
                     <li><a href="#hero" class="navbar-menu-item active">首页</a></li>
                     <li><a href="#products" class="navbar-menu-item">产品中心</a></li>
-                    <li><a href="/about" class="navbar-menu-item">关于我们</a></li>
-                    <li><a href="/join" class="navbar-menu-item">加入我们</a></li>
+                    <li><a href="#about" class="navbar-menu-item">关于我们</a></li>
+                    <li><a href="#join" class="navbar-menu-item">加入我们</a></li>
                 </ul>
                 <button class="theme-toggle" aria-label="切换主题模式">
                     <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 3C10.8 4.2 10.1 5.8 10.1 7.5C10.1 11.1 13 14 16.6 14C18.3 14 19.9 13.3 21.1 12.1C21.1 17 17.2 21 12.3 21C7.3 21 3.4 17.1 3.4 12.1C3.4 7.2 7.3 3.3 12.3 3.3C12.2 3.3 12.1 3.3 12 3.3V3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
                     </svg>
                     <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 3V4M12 20V21M21 12H20M4 12H3M18.4 18.4L17.7 17.7M6.3 6.3L5.6 5.6M18.4 5.6L17.7 6.3M6.3 17.7L5.6 18.4M16 12C16 14.2 14.2 16 12 16C9.8 16 8 14.2 8 12C8 9.8 9.8 8 12 8C14.2 8 16 9.8 16 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M12 3V4M12 20V21M21 12H20M4 12H3M18.4 18.4L17.7 17.7M6.3 6.3L5.6 5.6M18.4 5.6L17.7 6.3M6.3 17.7L5.6 18.4M16 12C16 14.2 14.2 16 12 16C9.8 16 8 14.2 8 12C8 9.8 9.8 8 12 8C14.2 8 16 9.8 16 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
             </div>
@@ -83,33 +93,39 @@
             <div class="container">
                 <div class="products-content">
                     <h2>产品中心。</h2>
+                    <div class="category-header">
+                        <h3 class="category-title">器 + 术</h3>
+                        <p class="products-subtitle"><span class="highlight-word">器</span>载其道，<span class="highlight-word">术</span>达其巅</p>
+                    </div>
                     <div class="product-list">
                         <div class="product-item">
                             <div class="product-logo">
                                 <img src="./images/logo-BZSQ-r.png" alt="笨嘴神器" width="48" height="48">
                             </div>
                             <div class="product-info">
-                                <h3>笨嘴神器</h3>
-                                <p>跨时代的 融合人工智能(AI)的股票基金分析利器</p>
-                                <button class="try-button">
-                                    扫码体验
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    <div class="qr-tooltip">
-                                        <div class="qr-container">
-                                            <p>打开微信扫一扫</p>
-                                            <img src="./images/erweima-BZSQ.png" alt="笨嘴神器小程序码" width="200" height="200">
+                                <div class="product-header">
+                                    <h3>笨嘴神器</h3>
+                                    <p>跨时代的 融合人工智能(AI)的 投资利器</p>
+                                    <button class="try-button">
+                                        扫码体验
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <div class="qr-tooltip">
+                                            <div class="qr-container">
+                                                <p>打开微信扫一扫</p>
+                                                <img src="./images/erweima-BZSQ.png" alt="笨嘴神器小程序码" width="200" height="200">
+                                            </div>
                                         </div>
-                                    </div>
-                                </button>
+                                    </button>
+                                </div>
                                 
                                 <!-- 修改产品详情布局，将两个模块排成一行 -->
                                 <div class="product-details">
                                     <div class="product-features-row">
                                         <div class="product-feature">
                                             <h4>机会大师</h4>
-                                            <p>板块+策略秘籍+自选 一键交火 轻松选出中意股</p>
+                                            <p>板块+策略秘籍+自选 一键交火 轻松选出中意内容</p>
                                             <div class="strategy-container">
                                                 <span class="highlight-number" data-target="30">0</span>
                                                 <span class="strategy-text">策略秘籍直接用</span>
@@ -147,14 +163,16 @@
                                 <img src="./images/logo-QMAI-r.png" alt="全民AI" width="48" height="48">
                             </div>
                             <div class="product-info">
-                                <h3>全民AI</h3>
-                                <p>智能随心 智造我的AI</p>
-                                <a href="https://ai.shuyouyinli.cn" target="_blank" class="try-button">
-                                    立即体验
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </a>
+                                <div class="product-header">
+                                    <h3>全民AI</h3>
+                                    <p>上全民AI 搭建我的智能体</p>
+                                    <a href="https://ai.shuyouyinli.cn" target="_blank" class="try-button">
+                                        立即体验
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </a>
+                                </div>
                                 
                                 <!-- 添加悬停时显示的产品详情 -->
                                 <div class="product-details ai-convergence">
@@ -166,12 +184,12 @@
                                             <span class="ai-tag study">学习导师</span>
                                             <span class="ai-tag life">日程安排</span>
                                             <span class="ai-tag creative">营养健康</span>
-                                            <span class="ai-tag research">理财投资顾问</span>
+                                            <span class="ai-tag research">金融模型</span>
                                             <span class="ai-tag coding">热点播报</span>
                                             <!-- 新增左侧标签 -->
                                             <span class="ai-tag parenting">哄娃神器</span>
                                             <!-- 新增右侧标签 -->
-                                            <span class="ai-tag fitness">1v1私教</span>
+                                            <span class="ai-tag fitness">情感陪伴</span>
                                         </div>
                                         
                                         <!-- 中心AI图标 -->
@@ -219,6 +237,210 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 在产品中心部分之后添加关于我们部分 -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <h2>关于我们。</h2>
+                    <div class="about-description">
+                        <p>我们是一家专注于人工智能和数据科学的创新型科技公司。我们致力于将前沿技术与实际应用相结合，为用户提供智能、高效的数字化、AI化的解决方案。</p>
+                        <p>公司拥有一支由AI专家、数据科学家和软件工程师组成的精英团队，具备深厚的技术积累和丰富的行业经验。我们坚持"以用户为中心"的理念，不断探索AI技术和创新应用，打造符合用户需求的智能产品。</p>
+                    </div>
+                    <div class="company-values">
+                        <!-- 第一个：使命 - 使用指南针/方向图标，代表引领方向和目标 -->
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16.2399 7.76001L14.1199 14.12L7.75991 16.24L9.87991 9.88001L16.2399 7.76001Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>使命</h3>
+                            <p>为中国的资本市场崛起，进而促进中国科技产业成为蓝星第一而奋斗。</p>
+                        </div>
+                        
+                        <!-- 第二个：价值观 - 使用基石/支柱图标，代表公司的根本准则 -->
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 22H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4 2H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6 2V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 2V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18 2V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4 7H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4 17H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>价值观</h3>
+                            <p>以客户为中心 以奋斗者为本 创新驱动增长 长期艰苦奋斗</p>
+                        </div>
+                        
+                        <!-- 第三个：企业文化 - 使用团队/连接图标，代表共同的行为准则和协作 -->
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>企业文化</h3>
+                            <p>追求卓越，让自己负责的部分成为客户心中的首选。彼此信任，所以简单。</p>
+                        </div>
+                    </div>
+                    <!-- 在公司价值观之后添加合作伙伴部分 -->
+                    <div class="partners-section">
+                        <h3 class="partners-title">合作伙伴</h3>
+                        <div class="partners-scroll">
+                            <div class="partners-grid">
+                                <!-- 第一组合作伙伴 -->
+                                <div class="partner-item">
+                                    <img src="./images/partner-01.png" alt="合作伙伴1" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-02.png" alt="合作伙伴2" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-03.png" alt="合作伙伴3" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-04.png" alt="合作伙伴4" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-05.png" alt="合作伙伴5" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-06.png" alt="合作伙伴6" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-07.png" alt="合作伙伴7" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-08.png" alt="合作伙伴8" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-09.png" alt="合作伙伴9" class="partner-logo">
+                                </div>
+                                
+                                <!-- 第二组合作伙伴（完全相同的顺序） -->
+                                <div class="partner-item">
+                                    <img src="./images/partner-01.png" alt="合作伙伴1" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-02.png" alt="合作伙伴2" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-03.png" alt="合作伙伴3" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-04.png" alt="合作伙伴4" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-05.png" alt="合作伙伴5" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-06.png" alt="合作伙伴6" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-07.png" alt="合作伙伴7" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-08.png" alt="合作伙伴8" class="partner-logo">
+                                </div>
+                                <div class="partner-item">
+                                    <img src="./images/partner-09.png" alt="合作伙伴9" class="partner-logo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 在关于我们部分之后添加加入我们部分 -->
+        <section id="join" class="join">
+            <div class="container">
+                <div class="join-content">
+                    <h2>加入我们。</h2>
+                    <div class="join-description">
+                        <p>我们正在寻找热爱科技、充满创造力的人才加入我们的团队。在这里，你将有机会参与前沿AI技术的研发与应用，与行业顶尖人才共同成长，创造改变世界的产品。</p>
+                    </div>
+                    
+                    <!-- 修改职位列表，不区分类别 -->
+                    <div class="jobs-container">
+                        <div class="job-list">
+                            <div class="job-item">
+                                <div class="job-header">
+                                    <h4>大模型算法</h4>
+                                    <span class="job-location">北京·朝阳区</span>
+                                </div>
+                                <p class="job-description">探究大语言模型的能力边界，测试评估开源大语言模型，构建AI Agent工具</p>
+                                <div class="job-footer">
+                                    <a href="job-details.html?id=ai-algorithm" class="view-details-button">查看详情</a>
+                                    <a href="mailto:huangh@shuyouyinli.com" class="apply-button">申请职位</a>
+                                </div>
+                            </div>
+                            
+                            <div class="job-item">
+                                <div class="job-header">
+                                    <h4>产品专员</h4>
+                                    <span class="job-location">北京·朝阳区</span>
+                                </div>
+                                <p class="job-description">负责需求分析管理、测试、上线及反馈的全周期工作，推进产品项目落地</p>
+                                <div class="job-footer">
+                                    <a href="job-details.html?id=product-specialist" class="view-details-button">查看详情</a>
+                                    <a href="mailto:huangh@shuyouyinli.com" class="apply-button">申请职位</a>
+                                </div>
+                            </div>
+                            
+                            <div class="job-item">
+                                <div class="job-header">
+                                    <h4>后端开发工程师（实习）</h4>
+                                    <span class="job-location">成都·武侯区</span>
+                                </div>
+                                <p class="job-description">负责协助团队完成产品的后端开发任务，参与AI创新产品探索</p>
+                                <div class="job-footer">
+                                    <a href="job-details.html?id=backend-intern" class="view-details-button">查看详情</a>
+                                    <a href="mailto:huangh@shuyouyinli.com" class="apply-button">申请职位</a>
+                                </div>
+                            </div>
+                            
+                            <div class="job-item">
+                                <div class="job-header">
+                                    <h4>前端开发工程师（实习）</h4>
+                                    <span class="job-location">成都·武侯区</span>
+                                </div>
+                                <p class="job-description">负责协助团队完成产品的前端页面开发任务，参与AI创新产品探索</p>
+                                <div class="job-footer">
+                                    <a href="job-details.html?id=frontend-intern" class="view-details-button">查看详情</a>
+                                    <a href="mailto:huangh@shuyouyinli.com" class="apply-button">申请职位</a>
+                                </div>
+                            </div>
+
+                            <div class="job-item">
+                                <div class="job-header">
+                                    <h4>产品经理（实习）</h4>
+                                    <span class="job-location">北京·朝阳区</span>
+                                </div>
+                                <p class="job-description">负责行情类产品策划、项目管理、用户反馈分析及AI技术应用</p>
+                                <div class="job-footer">
+                                    <a href="job-details.html?id=product-manager-intern" class="view-details-button">查看详情</a>
+                                    <a href="mailto:huangh@shuyouyinli.com" class="apply-button">申请职位</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="join-footer">
+                        <p>没有找到合适的职位？发送简历至 <a href="mailto:huangh@shuyouyinli.com">huangh@shuyouyinli.com</a>，我们期待与你交流。</p>
                     </div>
                 </div>
             </div>
@@ -909,5 +1131,71 @@
             }, 2000);
         });
     </script>
+
+    <script src="./js/section-spacing.js"></script>
+
+    <script>
+        // 检查是否需要滚动到"加入我们"部分
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查本地存储中的标记
+            const scrollToJoin = localStorage.getItem('scrollToJoin');
+            
+            if (scrollToJoin) {
+                // 清除标记
+                localStorage.removeItem('scrollToJoin');
+                
+                // 确保页面完全加载后再滚动
+                setTimeout(function() {
+                    // 直接获取"加入我们"部分
+                    const joinSection = document.getElementById('join');
+                    
+                    if (joinSection) {
+                        // 计算位置并滚动
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const joinPosition = joinSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                        
+                        // 使用平滑滚动
+                        window.scrollTo({
+                            top: joinPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // 高亮显示
+                        joinSection.classList.add('highlight-section');
+                        setTimeout(function() {
+                            joinSection.classList.remove('highlight-section');
+                        }, 2000);
+                        
+                        // 更新导航栏激活状态
+                        const navItems = document.querySelectorAll('.navbar-menu-item');
+                        navItems.forEach(item => {
+                            item.classList.remove('active');
+                            if (item.getAttribute('href') === '#join') {
+                                item.classList.add('active');
+                            }
+                        });
+                    }
+                }, 500); // 增加延迟时间，确保页面完全加载
+            }
+        });
+    </script>
+
+    <!-- 添加页脚部分 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p class="copyright">Copyright © 2023-2025 成都数有引力科技有限公司 All Rights Reserved.</p>
+                    <div class="footer-links">
+                        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" class="beian">蜀ICP备2023013366号-1</a>
+                        <span class="divider">|</span>
+                        <span class="wangxin">网信算备510107638890201230017号</span>
+                        <span class="divider">|</span>
+                        <a href="/sitemap.xml" class="sitemap">sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html> 
