@@ -7,19 +7,23 @@
   z-index: 100;
   background-color: rgba(var(--color-neutral-rgb-9), 0.8);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(0);
-  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: backdrop-filter;
 }
 
 /* 滚动时的效果 */
 .navbar.scrolled {
   background-color: rgba(var(--color-neutral-rgb-10), 0.8);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(var(--color-neutral-rgb-1), 0.1);
-  box-shadow: 
-    0 4px 6px -1px rgba(var(--color-neutral-rgb-9), 0.1),
-    0 2px 4px -1px rgba(var(--color-neutral-rgb-9), 0.06);
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: backdrop-filter;
 }
 
 .navbar-container {
